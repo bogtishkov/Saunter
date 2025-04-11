@@ -11,7 +11,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
       <LoadScript
-        googleMapsApiKey="AIzaSyBWG5FGS6jWI8gBdspFJ4qNaLoq0RMjDsk"
+        googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
         libraries={["geometry"]}
       >
         <App />
