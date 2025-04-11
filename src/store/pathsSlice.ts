@@ -21,13 +21,11 @@ export type Path = {
 
 interface PathsState {
   paths: Path[];
-  searchQuery: string;
   loading: boolean;
 }
 
 const initialState: PathsState = {
   paths: [],
-  searchQuery: "",
   loading: false,
 };
 
@@ -118,11 +116,7 @@ export const toggleFavoritePath = createAsyncThunk(
 const pathSlice = createSlice({
   name: "paths",
   initialState,
-  reducers: {
-    setSearchQuery: (state, action) => {
-      state.searchQuery = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchPaths.pending, (state) => {
@@ -156,5 +150,4 @@ const pathSlice = createSlice({
   },
 });
 
-export const { setSearchQuery } = pathSlice.actions;
 export default pathSlice.reducer;
