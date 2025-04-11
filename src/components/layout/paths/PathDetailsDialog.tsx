@@ -84,7 +84,7 @@ export const PathDetailsDialog = ({
             {selectedPath.fullDescription}
           </p>
 
-          <div className="w-full h-[300px] bg-gray-100 border flex items-center justify-center text-gray-500">
+          <div className="w-full h-[400px] bg-gray-100 border flex items-center justify-center text-gray-500">
             <Map
               key={selectedPathId}
               onLengthChange={handleLengthChange}
