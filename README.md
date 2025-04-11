@@ -1,54 +1,59 @@
-# React + TypeScript + Vite
+# Saunter 🌍
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Saunter is a SPA application for managing routes. It is built with TypeScript, React, Redux Toolkit, Firebase, Google Maps API, Material UI, and Tailwind CSS. The app allows users to create, view, edit routes, add them to favorites, delete them, and search for routes by keywords.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Route List 📋
 
-## Expanding the ESLint configuration
+- **Sorted Display**: All created routes are displayed, sorted by favorites (favorite routes are shown first).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+#### Route Information:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Route name**: The name of the route.
+- **Short description**: A brief description of the route (up to 160 characters).
+- **Route length**: Automatically calculated using Google Maps API.
+- **Favorite status**: Toggle routes as favorites.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Search Functionality:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Filter routes by name or full description**: Search functionality to quickly filter routes by name or full description.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+#### Special Case Handling:
+
+- **No routes available**: If no routes exist, a message is displayed to inform the user.
+- **No search results**: If no search results are found, the app will show a notification with an option to clear the search input.
+
+### Detailed Information 🗺️
+
+- **Full Route Details**:
+  - **Route name**: The name of the route.
+  - **Full description**: A detailed description of the route.
+  - **Route length**: The length of the route, calculated dynamically.
+  - **Map visualization**: A map showing the route with markers.
+
+#### Management Buttons:
+
+- **Add to favorites / Remove from favorites**: Toggle favorite status for a route.
+- **Delete**: Option to delete the route from the app.
+
+### Mobile Optimization:
+
+- On mobile devices, route details are displayed in a dialog window (Dialog), ensuring a user-friendly experience.
+
+### Adding Routes ➕
+
+- **Create New Routes**:
+  - Input fields for entering the route name, short description (limited to 160 characters), and full description.
+  - A map for adding markers and building the route.
+  - **Automatic route length calculation**: The length of the route is calculated using Google Maps API based on the markers.
+
+### Interactive Map 🗺️
+
+- **Marker Management**:
+  - Add markers by clicking on the map.
+  - Adjust marker positions by dragging them.
+
+#### Dynamic Updates:
+
+- **Route length** recalculates automatically whenever markers are added or changed.
