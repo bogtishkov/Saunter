@@ -36,27 +36,27 @@ export const PathList = ({
             )}
             onClick={() => onSelect(path)}
           >
-            <div className="flex justify-between items-stretch gap-3 md:gap-6">
-              <div className="flex gap-3 md:gap-6 w-full">
+            <div className="flex items-stretch gap-3 md:gap-6">
+              <div className="flex gap-3 md:gap-6 flex-1 min-w-0">
                 <div className="flex items-stretch">
                   <Expand className="h-full text-gray-400" />
                 </div>
-                <div className="flex flex-col justify-center max-w-full md:max-w-[450px]">
+                <div className="flex flex-col justify-center min-w-0">
                   <div className="flex items-center gap-1">
                     {path.isFavorite && (
                       <Star size={16} className="text-blue-500 fill-blue-500" />
                     )}
-                    <h2 className="font-bold text-gray-800 text-base md:text-xl">
+                    <h2 className="font-bold text-gray-800 text-base md:text-xl truncate">
                       {path.name}
                     </h2>
                   </div>
-                  <p className="text-sm text-gray-600 text-clip truncate text-ellipsis">
+                  <p className="text-sm text-gray-600 truncate">
                     {path.shortDescription}
                   </p>
                 </div>
               </div>
-              <div className="flex items-center text-lg font-semibold text-gray-700 whitespace-nowrap gap-3">
-                {formatDistance(path.length)}
+              <div className="flex items-center gap-2 shrink-0 text-md md:text-lg font-semibold text-gray-700 whitespace-nowrap pl-2">
+                <span className="truncate">{formatDistance(path.length)}</span>
                 <ChevronRight />
               </div>
             </div>
