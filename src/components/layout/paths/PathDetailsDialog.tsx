@@ -4,10 +4,17 @@ import {
   toggleFavoritePath,
   deletePathFromDB,
 } from "../../../store/pathsSlice";
-import { Button, Dialog, DialogActions, DialogContent } from "@mui/material";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  IconButton,
+} from "@mui/material";
 import { AppDispatch, RootState } from "../../../store";
 import { Map } from "../map";
 import { formatDistance } from "../../../utils/formatDistance";
+import { X } from "lucide-react";
 
 export const PathDetailsDialog = ({
   selectedPathId,
@@ -55,8 +62,20 @@ export const PathDetailsDialog = ({
         },
       }}
     >
+      <IconButton
+        aria-label="close"
+        onClick={onClose}
+        sx={(theme) => ({
+          position: "absolute",
+          right: 8,
+          top: 8,
+          color: theme.palette.grey[500],
+        })}
+      >
+        <X />
+      </IconButton>
       <DialogContent>
-        <div className="space-y-4">
+        <div className="space-y-4 mt-7">
           <div className="flex justify-between items-center text-xl font-semibold">
             <p>{selectedPath.name}</p>
             <p>{formatDistance(selectedPath.length)}</p>
