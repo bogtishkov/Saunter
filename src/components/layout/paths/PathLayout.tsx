@@ -38,7 +38,7 @@ export const PathLayout = ({ paths }: { paths: Path[] }) => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-[calc(100vh-64px)]">
       <div className="w-full sm:w-1/2 p-4 flex flex-col border-r border-gray-300">
         <SearchBar value={searchValue} onChange={setSearchValue} />
         <div className="flex-1 mt-4 pr-4">
